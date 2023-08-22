@@ -28,7 +28,10 @@ const useSampleForm = () => {
   // フォームの入力値
   console.log('watchedInput', watchedInput)
 
+  // zodの値変換+型チェックを通過した場合のみonSubmitが呼ばれる
+  // 実際の型はSampleFormStrictSchema
   const onSubmit = (data: SampleFormSafeSchema) => {
+    // zodの値変換+型チェックを通過した値
     console.log('data', data)
   }
 
