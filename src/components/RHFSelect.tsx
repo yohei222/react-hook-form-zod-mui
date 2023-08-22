@@ -9,11 +9,16 @@ import {
 } from '@mui/material'
 import { RHFProps } from '../types/RHFProps'
 
+export type SelectOptions = Readonly<{ value: number; label: string }[]>
+
 const RHFSelect = <T extends FieldValues>({
   name,
   control,
   label,
-}: RHFProps<T>) => {
+  options,
+}: RHFProps<T> & {
+  options: SelectOptions
+}) => {
   const {
     field,
     formState: { errors },
@@ -38,9 +43,11 @@ const RHFSelect = <T extends FieldValues>({
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {options.map((option, i) => (
+            <MenuItem key={`${option.value}-${i}`} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
       {errorMessage && (

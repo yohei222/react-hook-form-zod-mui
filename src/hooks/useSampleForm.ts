@@ -7,6 +7,7 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const useSampleForm = () => {
+  // フォームのデフォルト値：safeSchemaをparseした結果を使う
   const defaultValues = sampleFormSafeSchema.parse({})
 
   const {
@@ -15,10 +16,14 @@ const useSampleForm = () => {
     setValue,
     reset,
     formState: { errors },
+    // useFormのジェネリクスにはdefaultValuesの型を渡す
   } = useForm<SampleFormSafeSchema>({
-    mode: 'onBlur',
+    // modeをonBlurにすることで、初回validation時を検索ボタンが押されたタイミングに設定できる
+    mode: 'onSubmit',
+    // reValidateModeをonBlurにすることで、入力値が変更された時にresolverに指定されたvalidationが走る
     reValidateMode: 'onBlur',
     defaultValues,
+    // zodResolverの引数にonSubmit時に走るschemaを渡す
     resolver: zodResolver(sampleFormStrictSchema),
   })
 

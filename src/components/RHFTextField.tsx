@@ -1,4 +1,4 @@
-// 参考: https://react-hook-form.com/docs/usecontroller
+// useController: https://react-hook-form.com/docs/usecontroller
 
 import { Stack, TextField } from '@mui/material'
 import Typography from '@mui/material/Typography'
@@ -10,6 +10,7 @@ const RHFTextField = <T extends FieldValues>({
   control,
   label,
 }: RHFProps<T>) => {
+  // 入力フォームを共通化したいので、RHFのControllerの代わりにuseControllerを使用しています
   const {
     field,
     formState: { errors },

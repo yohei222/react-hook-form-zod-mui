@@ -16,6 +16,7 @@ const castToValOrNull = <T extends Parameters<typeof z.preprocess>[1]>(
     return null
   }, schema)
 
+// フォームのsubmit時に走るschema
 export const sampleFormStrictSchema = z.object({
   name: castToValOrNull(z.string().nonempty()),
   nullableName: castToValOrNull(z.string().nullable()),
@@ -23,7 +24,8 @@ export const sampleFormStrictSchema = z.object({
   nullableSelectedValue: castToValOrNull(z.number().nullable()),
 })
 
-// 値が存在する必要のあるフィールドのみfallbackを実装する
+// parseしても失敗しないスキーマ：デフォルト値の作成に用いる
+// 値が存在する必要のあるフィールド(parseに失敗するフィールド)のみfallbackを実装する
 export const sampleFormSafeSchema = sampleFormStrictSchema.extend({
   name: sampleFormStrictSchema.shape.name.or(fallback(null)),
   selectedValue: sampleFormStrictSchema.shape.nullableName.or(fallback(null)),

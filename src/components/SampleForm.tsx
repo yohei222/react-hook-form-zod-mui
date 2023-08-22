@@ -1,7 +1,7 @@
 import useSampleForm from '../hooks/useSampleForm'
 import { Box, Button } from '@mui/material'
 import RHFTextField from './RHFTextField'
-import RHFSelect from './RHFSelect'
+import RHFSelect, { SelectOptions } from './RHFSelect'
 
 const SampleForm = () => {
   const {
@@ -11,6 +11,9 @@ const SampleForm = () => {
   return (
     <Box
       component="form"
+      // handleSubmitはvalidationが通った時のみ実行されます
+      // ドキュメント：This function will receive the form data if form validation is successful.
+      // https://react-hook-form.com/docs/useform/handlesubmit
       onSubmit={handleSubmit(onSubmit)}
       width={'1000px'}
       margin={'50px auto'}
@@ -20,11 +23,17 @@ const SampleForm = () => {
     >
       <RHFTextField name="name" control={control} label="必須入力" />
       <RHFTextField name="nullableName" control={control} label="任意入力" />
-      <RHFSelect name="selectedValue" control={control} label="必須選択" />
+      <RHFSelect
+        name="selectedValue"
+        label="必須選択"
+        control={control}
+        options={options}
+      />
       <RHFSelect
         name="nullableSelectedValue"
-        control={control}
         label="任意選択"
+        control={control}
+        options={options}
       />
       <Button type="submit" variant="outlined" sx={{ mt: 2, width: 200 }}>
         検索
@@ -34,3 +43,18 @@ const SampleForm = () => {
 }
 
 export default SampleForm
+
+const options = [
+  {
+    value: 10,
+    label: 'Ten',
+  },
+  {
+    value: 20,
+    label: 'Twenty',
+  },
+  {
+    value: 30,
+    label: 'Thirty',
+  },
+] as const satisfies SelectOptions
