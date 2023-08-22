@@ -13,7 +13,6 @@ const useSampleForm = () => {
   const {
     control,
     handleSubmit,
-    reset,
     formState: { errors },
     // useFormのジェネリクスにはdefaultValuesの型を渡す
   } = useForm<SampleFormSafeSchema>({
@@ -42,8 +41,7 @@ const useSampleForm = () => {
   return {
     form: {
       control,
-      handleSubmit,      
-      reset,
+      handleSubmit,
       onSubmit,
     },
   }
