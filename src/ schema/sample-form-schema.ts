@@ -20,7 +20,7 @@ const castToValOrNull = <T extends Parameters<typeof z.preprocess>[1]>(
 export const sampleFormStrictSchema = z.object({
   name: castToValOrNull(z.string().nonempty()),
   nullableName: castToValOrNull(z.string().nullable()),
-  selectedValue: z.number(),
+  selectedValue: castToValOrNull(z.number().nullable()),
   nullableSelectedValue: castToValOrNull(z.number().nullable()),
 })
 
