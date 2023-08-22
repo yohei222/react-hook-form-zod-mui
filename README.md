@@ -1,5 +1,5 @@
 ## About
-This is a sample repository building input form with below libraries
+This is a sample repository building simple form with below libraries
 - React Hook Form
 - Zod
 - Material UI
