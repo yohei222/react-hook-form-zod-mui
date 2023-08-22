@@ -13,7 +13,6 @@ const useSampleForm = () => {
   const {
     control,
     handleSubmit,
-    setValue,
     reset,
     formState: { errors },
     // useFormのジェネリクスにはdefaultValuesの型を渡す
@@ -43,8 +42,7 @@ const useSampleForm = () => {
   return {
     form: {
       control,
-      handleSubmit,
-      setValue,
+      handleSubmit,      
       reset,
       onSubmit,
     },
