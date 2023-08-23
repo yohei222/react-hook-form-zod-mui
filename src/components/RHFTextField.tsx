@@ -24,12 +24,12 @@ const RHFTextField = <T extends FieldValues>({
         {label}:
       </Typography>
       <TextField
-        name={field.name} // send down the input name
         // 値がnullの場合は空文字に変換する
-        value={field.value ?? ''} // input value
-        onChange={field.onChange} // send value to hook form
-        onBlur={field.onBlur} // notify when input is touched/blur
-        inputRef={field.ref} // send input ref, so we can focus on input when error appear
+        value={field.value ?? ''}
+        name={field.name}
+        onChange={field.onChange}
+        onBlur={field.onBlur}
+        inputRef={field.ref}
       />
       {errorMessage && (
         <Typography variant="body1" ml={3} color="red">

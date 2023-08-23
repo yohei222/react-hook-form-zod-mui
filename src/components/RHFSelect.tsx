@@ -20,7 +20,7 @@ const RHFSelect = <T extends FieldValues>({
   options: SelectOptions
 }) => {
   const {
-    field,
+    field: { value, ...rest },
     formState: { errors },
   } = useController({ name, control })
 
@@ -35,10 +35,8 @@ const RHFSelect = <T extends FieldValues>({
         <InputLabel>{label}</InputLabel>
         <Select
           // 値がnullの場合は空文字に変換する
-          value={field.value ?? ''}
-          onChange={field.onChange}
-          onBlur={field.onBlur}
-          inputRef={field.ref}
+          value={value ?? ''}
+          {...rest}
         >
           <MenuItem value="">
             <em>None</em>
