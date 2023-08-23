@@ -18,7 +18,7 @@ const castToValOrNull = <T extends Parameters<typeof z.preprocess>[1]>(
 
 // フォームのsubmit時に走るschema
 export const sampleFormStrictSchema = z.object({
-  name: castToValOrNull(z.string().nonempty()),
+  name: castToValOrNull(z.string()),
   nullableName: castToValOrNull(z.string().nullable()),
   selectedValue: castToValOrNull(z.number()),
   nullableSelectedValue: castToValOrNull(z.number().nullable()),
