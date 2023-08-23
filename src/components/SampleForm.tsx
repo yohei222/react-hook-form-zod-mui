@@ -1,11 +1,12 @@
 import useSampleForm from '../hooks/useSampleForm'
 import { Box, Button } from '@mui/material'
 import RHFTextField from './RHFTextField'
-import RHFSelect, { SelectOptions } from './RHFSelect'
+import RHFSelect from './RHFSelect'
 
 const SampleForm = () => {
   const {
     form: { control, handleSubmit, onSubmit },
+    options,
   } = useSampleForm()
 
   return (
@@ -43,18 +44,3 @@ const SampleForm = () => {
 }
 
 export default SampleForm
-
-const options = [
-  {
-    value: 10,
-    label: 'Ten',
-  },
-  {
-    value: 20,
-    label: 'Twenty',
-  },
-  {
-    value: 30,
-    label: 'Thirty',
-  },
-] as const satisfies SelectOptions

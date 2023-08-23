@@ -5,6 +5,7 @@ import {
   sampleFormStrictSchema,
 } from '../ schema/sample-form-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { SelectOptions } from '../components/RHFSelect'
 
 const useSampleForm = () => {
   // フォームのデフォルト値：safeSchemaをparseした結果を使う
@@ -44,7 +45,23 @@ const useSampleForm = () => {
       handleSubmit,
       onSubmit,
     },
+    options,
   }
 }
 
 export default useSampleForm
+
+const options = [
+  {
+    value: 10,
+    label: 'Ten',
+  },
+  {
+    value: 20,
+    label: 'Twenty',
+  },
+  {
+    value: 30,
+    label: 'Thirty',
+  },
+] as const satisfies SelectOptions
