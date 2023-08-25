@@ -17,12 +17,7 @@ const useSampleForm = () => {
     mode: 'onSubmit',
     // reValidateModeをonBlurにすることで、入力値が変更された時にresolverに指定されたvalidationが走る
     reValidateMode: 'onBlur',
-    defaultValues: {
-      name: '',
-      nullableName: null,
-      selectedValue: '',
-      nullableSelectedValue: null,
-    },
+    defaultValues: undefined,
     // zodResolverの引数にonSubmit時に走るschemaを渡す
     resolver: zodResolver(sampleFormSchema),
   })
@@ -34,7 +29,6 @@ const useSampleForm = () => {
   console.log('watchedInput', watchedInput)
 
   // zodの値変換+型チェックを通過した場合のみonSubmitが呼ばれる
-  // 実際の型はSampleFormStrictSchema
   const onSubmit = (data: SampleFormSchema) => {
     // zodの値変換+型チェックを通過した値
     console.log('data', data)
