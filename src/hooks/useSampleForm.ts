@@ -1,29 +1,30 @@
 import { useForm, useWatch } from 'react-hook-form'
 import {
-  SampleFormSafeSchema,
-  sampleFormSafeSchema,
-  sampleFormStrictSchema,
+  SampleFormSchema,
+  sampleFormSchema,
 } from '../ schema/sample-form-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SelectOptions } from '../components/RHFSelect'
 
 const useSampleForm = () => {
-  // フォームのデフォルト値：safeSchemaをparseした結果を使う
-  const defaultValues = sampleFormSafeSchema.parse({})
-
   const {
     control,
     handleSubmit,
     formState: { errors },
     // useFormのジェネリクスにはdefaultValuesの型を渡す
-  } = useForm<SampleFormSafeSchema>({
+  } = useForm<SampleFormSchema>({
     // modeをonBlurにすることで、初回validation時を検索ボタンが押されたタイミングに設定できる
     mode: 'onSubmit',
     // reValidateModeをonBlurにすることで、入力値が変更された時にresolverに指定されたvalidationが走る
     reValidateMode: 'onBlur',
-    defaultValues,
+    defaultValues: {
+      name: '',
+      nullableName: null,
+      selectedValue: 10,
+      nullableSelectedValue: null,
+    },
     // zodResolverの引数にonSubmit時に走るschemaを渡す
-    resolver: zodResolver(sampleFormStrictSchema),
+    resolver: zodResolver(sampleFormSchema),
   })
 
   const watchedInput = useWatch({ control })
@@ -34,7 +35,7 @@ const useSampleForm = () => {
 
   // zodの値変換+型チェックを通過した場合のみonSubmitが呼ばれる
   // 実際の型はSampleFormStrictSchema
-  const onSubmit = (data: SampleFormSafeSchema) => {
+  const onSubmit = (data: SampleFormSchema) => {
     // zodの値変換+型チェックを通過した値
     console.log('data', data)
   }
