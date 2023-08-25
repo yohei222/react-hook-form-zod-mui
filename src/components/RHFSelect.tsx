@@ -9,7 +9,7 @@ import {
 } from '@mui/material'
 import { RHFProps } from '../types/RHFProps'
 
-export type SelectOptions = Readonly<{ value: number; label: string }[]>
+export type SelectOptions = Readonly<{ value: string; label: string }[]>
 
 const RHFSelect = <T extends FieldValues>({
   name,

@@ -20,7 +20,7 @@ const useSampleForm = () => {
     defaultValues: {
       name: '',
       nullableName: null,
-      selectedValue: 10,
+      selectedValue: '',
       nullableSelectedValue: null,
     },
     // zodResolverの引数にonSubmit時に走るschemaを渡す
@@ -54,15 +54,15 @@ export default useSampleForm
 
 const options = [
   {
-    value: 10,
-    label: 'Ten',
+    value: '候補1',
+    label: '候補1',
   },
   {
-    value: 20,
-    label: 'Twenty',
+    value: '候補2',
+    label: '候補2',
   },
   {
-    value: 30,
-    label: 'Thirty',
+    value: '候補3',
+    label: '候補3',
   },
 ] as const satisfies SelectOptions
