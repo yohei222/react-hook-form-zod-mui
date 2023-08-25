@@ -2,7 +2,7 @@ import { useForm, useWatch } from 'react-hook-form'
 import {
   SampleFormSchema,
   sampleFormSchema,
-} from '../ schema/sample-form-schema'
+} from '../schema/sample-form-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SelectOptions } from '../components/RHFSelect'
 
