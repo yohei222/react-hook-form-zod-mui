@@ -17,6 +17,7 @@ const useSampleForm = () => {
     mode: 'onSubmit',
     // reValidateModeをonBlurにすることで、入力値が変更された時にresolverに指定されたvalidationが走る
     reValidateMode: 'onBlur',
+    // デフォルト状態はフォーム要素全てが未定義(undefined)の状態として取り扱う
     defaultValues: undefined,
     // zodResolverの引数にonSubmit時に走るschemaを渡す
     resolver: zodResolver(sampleFormSchema),
