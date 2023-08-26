@@ -34,7 +34,7 @@ const RHFSelect = <T extends FieldValues>({
       <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel>{label}</InputLabel>
         <Select
-          // 値がnullの場合は空文字に変換する
+          // 値がundefinedの場合は空文字に変換する
           value={value ?? ''}
           {...rest}
         >
