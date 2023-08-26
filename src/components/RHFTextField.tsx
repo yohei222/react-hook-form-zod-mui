@@ -23,7 +23,7 @@ const RHFTextField = <T extends FieldValues>({
         {label}:
       </Typography>
       <TextField
-        // 値がnullの場合は空文字に変換する
+        // 値がundefinedの場合は空文字に変換する
         value={field.value ?? ''}
         name={field.name}
         onChange={field.onChange}
