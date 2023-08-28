@@ -25,10 +25,10 @@ const RHFTextField = <T extends FieldValues>({
       <TextField
         // 値がundefinedの場合は空文字に変換する
         value={field.value ?? ''}
+        inputRef={field.ref}
         name={field.name}
         onChange={field.onChange}
         onBlur={field.onBlur}
-        inputRef={field.ref}
       />
       {errorMessage && (
         <Typography variant="body1" ml={3} color="red">
