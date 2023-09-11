@@ -2,11 +2,12 @@ import useSampleForm from '../hooks/useSampleForm'
 import { Box, Button } from '@mui/material'
 import RHFTextField from './RHFTextField'
 import RHFSelect from './RHFSelect'
+import { RHFMultiAutocomplete } from './multiAutocomplete/RHFMultiAutocomplete'
 
 const SampleForm = () => {
   const {
     form: { control, handleSubmit, onSubmit },
-    options,
+    options: { options, optionsWithColor },
   } = useSampleForm()
 
   return (
@@ -35,6 +36,21 @@ const SampleForm = () => {
         label="任意選択"
         control={control}
         options={options}
+      />
+      <RHFMultiAutocomplete
+        name="multiOptions"
+        label="複数選択"
+        control={control}
+        options={optionsWithColor}
+        // renderOption: https://mui.com/material-ui/api/autocomplete/#Autocomplete-prop-renderOption
+        renderOption={(props, option) => {
+          // props: mui側で用意されている定数や関数が複数入っている
+          return (
+            <Box {...props} component="li" color={option.color}>
+              {option.label}
+            </Box>
+          )
+        }}
       />
       <Button type="submit" variant="outlined" sx={{ mt: 2, width: 200 }}>
         検索

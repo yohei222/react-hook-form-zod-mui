@@ -41,7 +41,10 @@ const useSampleForm = () => {
       handleSubmit,
       onSubmit,
     },
-    options,
+    options: {
+      options,
+      optionsWithColor,
+    },
   }
 }
 
@@ -61,3 +64,21 @@ const options = [
     label: '候補3',
   },
 ] as const satisfies SelectOptions
+
+const optionsWithColor = [
+  {
+    value: '赤',
+    label: '赤',
+    color: 'red',
+  },
+  {
+    value: '青',
+    label: '青',
+    color: 'blue',
+  },
+  {
+    value: '緑',
+    label: '緑',
+    color: 'green',
+  },
+] as const

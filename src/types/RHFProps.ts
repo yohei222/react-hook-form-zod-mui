@@ -1,6 +1,6 @@
-import { FieldValues, UseControllerProps } from "react-hook-form"
+import { FieldValues, UseControllerProps } from 'react-hook-form'
 
-export type RHFProps<T extends FieldValues> = Pick<
+export type RHFProps<T extends FieldValues = FieldValues> = Pick<
   UseControllerProps<T>,
   'name' | 'control'
 > & {
