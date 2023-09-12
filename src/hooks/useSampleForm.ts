@@ -68,17 +68,17 @@ const options = [
 const optionsWithColor = [
   {
     value: '赤',
-    label: '赤',
+    label: 'あか',
     color: 'red',
   },
   {
     value: '青',
-    label: '青',
+    label: 'あお',
     color: 'blue',
   },
   {
     value: '緑',
-    label: '緑',
+    label: 'みどり',
     color: 'green',
   },
 ] as const
