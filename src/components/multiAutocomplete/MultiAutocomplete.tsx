@@ -105,6 +105,7 @@ export const MultiAutocomplete = <TValue = unknown, TOptionExtra = unknown>({
               <TextField
                 {...params}
                 error={!!errorMessage}
+                // inputRef: https://mui.com/material-ui/api/text-field/#TextField-prop-inputRef
                 inputRef={inputRef}
                 placeholder={placeholder}
               />
