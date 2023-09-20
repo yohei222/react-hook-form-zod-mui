@@ -35,8 +35,8 @@ export type MuiAutocompleteProps<
     label: string
   } & TOptionExtra,
   true,
-  false,
-  false
+  false, // DisableClearable：選択されている値を一括でクリアできるかのフラグ
+  false // FreeSolo：任意の値を入力できるようにするかのフラグ
 >
 
 // mui関連の型のまとまり
@@ -85,6 +85,8 @@ export const MultiAutocomplete = <TValue = unknown, TOptionExtra = unknown>({
           <MuiAutocomplete
             {...props}
             multiple={true}
+            // disableClearable={false}
+            // freeSolo={false}
             disableCloseOnSelect={true}
             onChange={(_, selectedOptions) => {
               // optionのvalueのみを取り出す
